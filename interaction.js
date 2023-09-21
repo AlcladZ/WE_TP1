@@ -19,8 +19,7 @@ function DnD(canvas, interactor) {
     this.yInit = getMousePosition(this.canvas, evt).y;
     this.xFinal = getMousePosition(this.canvas, evt).x;
     this.yFinal = getMousePosition(this.canvas, evt).y;
-    console.log("xInit = ", this.xInit);
-    console.log("yInit = ", this.yInit);
+    console.log("xInit = " + this.xInit + ", yInit = " + this.yInit);
   
     this.presse = true;
   }.bind(this)
@@ -29,16 +28,14 @@ function DnD(canvas, interactor) {
     if (this.presse) {
       this.xFinal = getMousePosition(this.canvas, evt).x;
       this.yFinal = getMousePosition(this.canvas, evt).y;
-      console.log("xFinalDep = ", this.xFinal);
-      console.log("yFinalDep = ", this.yFinal);
+      console.log("xFinalDep = " + this.xFinal + ", yFinalDep = " + this.yFinal);
     }
   }.bind(this)
   
   this.relachement = function(evt) {
     console.log("RELEASE");
     if (this.presse) {
-      console.log("xFinalRel = ", this.xFinal);
-      console.log("yFinalRel = ", this.yFinal);
+      console.log("xFinalRel = " + this.xFinal + ",yFinalRel = " + this.yFinal);
     }
     this.presse = false;
   }.bind(this)
