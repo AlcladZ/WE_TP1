@@ -3,20 +3,21 @@ function Forme(couleur, epaisseur) {
     this.epaisseur = epaisseur;
 };
 
-function Rectangle(couleur, epaisseur, pointHautGauche, largeur, hauteur) {
-    this.pointHautGauche = pointHautGauche;
+function Rectangle(x, y, largeur, hauteur, epaisseur, couleur) {
+    this.x = x;
+    this.y = y;
     this.largeur = largeur;
     this.hauteur = hauteur;
     Forme.call(this, couleur, epaisseur);
 };
+Rectangle.prototype = new Forme();
 
-function Ligne(couleur, epaisseur, pointA, pointB) {
-    this.pointA = pointA;
-    this.pointB = pointB;
+function Ligne(xA, yA, xB, yB, epaisseur, couleur) {
+    this.xA = xA;
+    this.yA = yA;
+    this.xB = xB;
+    this.yB = yB;
     Forme.call(this, couleur, epaisseur);
 };
-
-function Point(x, y) {
-    this.x = x;
-    this.y = y;
-};
+Ligne.prototype = new Forme();
+//4 classes ?
