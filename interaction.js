@@ -14,28 +14,25 @@ function DnD(canvas, interactor) {
   this.presse = false;
 	// Developper les 3 fonctions gérant les événements
   this.pression = function(evt) {
-    console.log("CLICK");
     this.xInit = getMousePosition(this.canvas, evt).x;
     this.yInit = getMousePosition(this.canvas, evt).y;
     this.xFinal = getMousePosition(this.canvas, evt).x;
     this.yFinal = getMousePosition(this.canvas, evt).y;
-    console.log("xInit = " + this.xInit + ", yInit = " + this.yInit);
-  
     this.presse = true;
+    this.interactor.onInteractionStart(this);
   }.bind(this)
   
   this.deplacement = function(evt) {
     if (this.presse) {
       this.xFinal = getMousePosition(this.canvas, evt).x;
       this.yFinal = getMousePosition(this.canvas, evt).y;
-      console.log("xFinalDep = " + this.xFinal + ", yFinalDep = " + this.yFinal);
+      this.interactor.onInteractionUpdate(this);
     }
   }.bind(this)
   
   this.relachement = function(evt) {
-    console.log("RELEASE");
     if (this.presse) {
-      console.log("xFinalRel = " + this.xFinal + ",yFinalRel = " + this.yFinal);
+      this.interactor.onInteractionEnd(this);
     }
     this.presse = false;
   }.bind(this)
