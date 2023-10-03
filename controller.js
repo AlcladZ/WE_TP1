@@ -46,8 +46,8 @@ function Pencil(ctx, drawing, canvas) {
 		} else {
 			this.currentShape = new Ligne(dnd.xInit, dnd.yInit, dnd.xFinal, dnd.yFinal, this.currLineWidth, this.currColour);
 		}
-		this.drawing.getForms().push(this.currentShape )
-
+		
+		updateShapeList(drawing, this.currentShape);
 		this.drawing.paint(ctx)
 
 	}.bind(this);
