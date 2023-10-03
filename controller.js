@@ -29,7 +29,7 @@ function Pencil(ctx, drawing, canvas) {
 	this.onInteractionUpdate = function (dnd) {
 		console.log("DRAG");
 		if (this.currEditingMode == editingMode.rect) {
-			this.currentShape = new Rectangle(dnd.xInit, yInit, dnd.xFinal, dnd.yFinal, this.currLineWidth, this.currColour);
+			this.currentShape = new Rectangle(dnd.xInit, dnd.yInit, dnd.xFinal, dnd.yFinal, this.currLineWidth, this.currColour);
 		} else {
 			this.currentShape = new Ligne(dnd.xInit, dnd.yInit, dnd.xFinal, dnd.yFinal, this.currLineWidth, this.currColour);
 		}
@@ -38,7 +38,7 @@ function Pencil(ctx, drawing, canvas) {
 	this.onInteractionEnd = function (dnd) {
 		console.log("DROP");
 		if (this.currEditingMode == editingMode.rect) {
-			this.currentShape = new Rectangle(dnd.xInit, yInit, dnd.xFinal, dnd.yFinal, this.currLineWidth, this.currColour);
+			this.currentShape = new Rectangle(dnd.xInit, dnd.yInit, dnd.xFinal, dnd.yFinal, this.currLineWidth, this.currColour);
 		} else {
 			this.currentShape = new Ligne(dnd.xInit, dnd.yInit, dnd.xFinal, dnd.yFinal, this.currLineWidth, this.currColour);
 		}
