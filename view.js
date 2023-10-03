@@ -25,5 +25,8 @@ Drawing.prototype.paint = function (ctx) {
   });
 };
 
+function updateShapeList(){
+  
+}
 
 // Implémenter ici les fonctions paint à ajouter dans chacune des classes du modèle.
