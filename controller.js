@@ -8,10 +8,7 @@ function Pencil(ctx, drawing, canvas) {
 	this.currentShape = 0;
 	this.drawing = drawing;
 	// Liez ici les widgets à la classe pour modifier les attributs présents ci-dessus.
-	document.getElementById('spinnerWidth').onload = (_) => {
-		var spinner = document.getElementById('spinnerWidth');
-		spinner = this.currLineWidth;
-	}
+
 	document.getElementById('colour').setAttribute('colour', this.currColour);
 
 	document.getElementById('butRect').onclick = (_) => this.currEditingMode = editingMode.rect;

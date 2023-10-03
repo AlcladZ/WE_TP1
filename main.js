@@ -1,3 +1,14 @@
+document.addEventListener("DOMContentLoaded", (event) =>{
+    var spinner = document.getElementById('spinnerWidth');
+    console.error(spinner)
+    spinner.value = 5;
+    
+    var colour = document.getElementById('colour');
+    console.error(colour)
+    colour.value = '#000000';
+
+})
+
 var canvas = document.getElementById('myCanvas');
 var ctx = canvas.getContext('2d');
 
