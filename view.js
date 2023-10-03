@@ -1,12 +1,14 @@
 Rectangle.prototype.paint = function (ctx) {
-  //TODO Manager color
+  ctx.strokeStyle = this.couleur;
+  ctx.lineWidth = this.epaisseur;
   ctx.beginPath();
-  ctx.rect(this.getInitX(), this.getInitY(), this.getFinalX(), this.getFinalY());
+  ctx.rect(this.getInitX(), this.getInitY(), this.getFinalX() - this.getInitX(), this.getFinalY() - this.getInitY());
   ctx.stroke();
 };
 
 Ligne.prototype.paint = function (ctx) {
-  //TODO Manager color
+  ctx.strokeStyle = this.couleur;
+  ctx.lineWidth = this.epaisseur;
   ctx.beginPath();
   ctx.moveTo(this.getInitX(), this.getInitY());
   ctx.lineTo(this.getFinalX(), this.getFinalY());

@@ -10,25 +10,25 @@ function Forme(couleur, epaisseur) {
     this.epaisseur = epaisseur;
 };
 
-function Rectangle(x, y, hauteur, largeur, epaisseur, couleur) {
-    this.x = x;
-    this.y = y;
-    this.largeur = largeur;
-    this.hauteur = hauteur;
+function Rectangle(xA, yA, xB, yB, epaisseur, couleur) {
+    this.xA = xA;
+    this.yA = yA;
+    this.xB = xB;
+    this.yB = yB;
     Forme.call(this, couleur, epaisseur);
 };
 Rectangle.prototype = new Forme();
 Rectangle.prototype.getInitX = function() {
-    return this.x;
+    return this.xA;
 };
 Rectangle.prototype.getInitY = function() {
-    return this.y;
+    return this.yA;
 };
 Rectangle.prototype.getFinalX = function() {
-    return this.x + this.largeur;
+    return this.xB;
 };
 Rectangle.prototype.getFinalY = function() {
-    return this.y + this.hauteur;
+    return this.yB;
 };
 
 function Ligne(xA, yA, xB, yB, epaisseur, couleur) {

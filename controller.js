@@ -6,8 +6,13 @@ function Pencil(ctx, drawing, canvas) {
 	this.currLineWidth = 5;
 	this.currColour = '#000000';
 	this.currentShape = 0;
-
+	this.drawing = drawing;
 	// Liez ici les widgets à la classe pour modifier les attributs présents ci-dessus.
+	document.getElementById('spinnerWidth').onload = (_) => {
+		var spinner = document.getElementById('spinnerWidth');
+		spinner = this.currLineWidth;
+	}
+	document.getElementById('colour').setAttribute('colour', this.currColour);
 
 	document.getElementById('butRect').onclick = (_) => this.currEditingMode = editingMode.rect;
 	document.getElementById('butLine').onclick = (_) => this.currEditingMode = editingMode.line;
@@ -19,7 +24,7 @@ function Pencil(ctx, drawing, canvas) {
 	// Implémentez ici les 3 fonctions onInteractionStart, onInteractionUpdate et onInteractionEnd
 	this.onInteractionStart = function (dnd) {
 		console.log("CLICK");
-		if (this.currEditingMode == editingMode.rect) {
+		if (this.currEditingMode === editingMode.rect) {
 			this.currentShape = new Rectangle();
 		} else {
 			this.currentShape = new Ligne();
@@ -28,20 +33,26 @@ function Pencil(ctx, drawing, canvas) {
 
 	this.onInteractionUpdate = function (dnd) {
 		console.log("DRAG");
-		if (this.currEditingMode == editingMode.rect) {
+		if (this.currEditingMode === editingMode.rect) {
 			this.currentShape = new Rectangle(dnd.xInit, dnd.yInit, dnd.xFinal, dnd.yFinal, this.currLineWidth, this.currColour);
 		} else {
 			this.currentShape = new Ligne(dnd.xInit, dnd.yInit, dnd.xFinal, dnd.yFinal, this.currLineWidth, this.currColour);
 		}
+		this.drawing.paint(ctx)
+		this.currentShape.paint(ctx)
 	}.bind(this);
 
 	this.onInteractionEnd = function (dnd) {
 		console.log("DROP");
-		if (this.currEditingMode == editingMode.rect) {
+		if (this.currEditingMode === editingMode.rect) {
 			this.currentShape = new Rectangle(dnd.xInit, dnd.yInit, dnd.xFinal, dnd.yFinal, this.currLineWidth, this.currColour);
 		} else {
 			this.currentShape = new Ligne(dnd.xInit, dnd.yInit, dnd.xFinal, dnd.yFinal, this.currLineWidth, this.currColour);
 		}
+		this.drawing.getForms().push(this.currentShape )
+
+		this.drawing.paint(ctx)
+
 	}.bind(this);
 };
 
