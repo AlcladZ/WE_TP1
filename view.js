@@ -25,9 +25,8 @@ Drawing.prototype.paint = function (ctx) {
   });
 };
 
-function updateShapeList(drawing, form){
-  //this.drawing.getForms.push(this.form)
-  //console.error(this.drawing.getForms);
+function updateShapeList(drawing, shape){
+  drawing.getForms().push(shape);
 }
 
 // Implémenter ici les fonctions paint à ajouter dans chacune des classes du modèle.
